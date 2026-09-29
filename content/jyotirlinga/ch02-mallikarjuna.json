@@ -1,0 +1,23 @@
+{
+  "id": "jyotirlinga-02",
+  "series": "The Twelve Jyotirlingas",
+  "order": 2,
+  "title": "Mallikarjuna — The Mountain of Jasmine",
+  "intro": "On Srisailam's peaks, jasmine and wild grace grow together around the second flame.",
+  "provenance": {
+    "work": "Dwadasha Jyotirlinga Stotram (second verse) + Skanda/Shiva Purana Kartikeya episode",
+    "source": "Traditional stotram compilations; Purana references via GRETIL-registered texts",
+    "translation": "Bhava to be drafted by pipeline — PENDING human review",
+    "status": "STUB — segments pending draft"
+  },
+  "segments": [
+    {
+      "type": "padya",
+      "sanskrit": "श्रीशैलमाल्लिकारुजः",
+      "transliteration": "śrīśaila-mallikārjunaḥ — on Śrīśaila mountain stands Mallikarjuna.",
+      "bhava": "Draft pending — the story of a son who fled in grief, and parents who followed him to the ends of the earth."
+    }
+  ],
+  "teaser": "Kartikeya abandoned everything in sorrow — watch what love does next.",
+  "estMinutes": 18
+}

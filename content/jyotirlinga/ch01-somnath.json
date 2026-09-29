@@ -1,0 +1,40 @@
+{
+  "id": "jyotirlinga-01",
+  "series": "The Twelve Jyotirlingas",
+  "order": 1,
+  "title": "Somnath — The First Light",
+  "intro": "Come closer, shishyas. Tonight we begin a journey to twelve sacred abodes, and the first stands where the land meets the western sea.",
+  "provenance": {
+    "work": "Dwadasha Jyotirlinga Stotram (opening verse) + Puranic narrative of Soma/Chandra (Shiva Purana tradition)",
+    "source": "Stotram as circulated in devotional compilations (Gita Press editions); Purana references indexed via GRETIL-registered Shiva Purana texts",
+    "translation": "Bhava drafted by AI-assisted pipeline — PENDING human scholarly review before publication",
+    "alternate": "Verse attribution to Adi Shankaracharya is traditional but debated among scholars; reading 'kripaavatirnam' vs 'krupaavalevai' varies across editions",
+    "status": "AI-DRAFT v0.1 — not yet human-reviewed"
+  },
+  "segments": [
+    {
+      "type": "padya",
+      "sanskrit": "सौराष्ट्रदेशे विशदेऽतिरम्ये\nज्योतिर्मयं चन्द्रकलावतंसम्।\nभक्तिप्रदानाय कृपावतीर्णं\nतं सोमनाथं शरणं प्रपद्ये॥",
+      "transliteration": "saurāṣṭra-deśe viśade 'tiramye,\njyotirmayaṁ candrakalāvataṁsam |\nbhakti-pradānāya kṛpāvatīrṇaṁ\ntaṁ somanāthaṁ śaraṇaṁ prapadye ||",
+      "say": "Sauraashtra deshe vishade atiramye. Jyotirmayam chandra kalaa vatamsam. Bhakti pradaanaaya krupaa avateernam. Tam Somaanaatham sharanam prapadye.",
+      "bhava": "In Saurashtra, in that vast and beautiful land, there shines one radiant as moonlight, wearing the crescent moon itself as his ornament. Descended here out of pure grace, to bestow devotion upon us — to that Somnath, I surrender and take refuge."
+    },
+    {
+      "type": "narrative",
+      "delivery": "soft",
+      "text": "Now sit, and let me tell it the way my own guru told me.\n\nLong ago there was a god of gentle light — Soma, the Moon. He was married to twenty-seven daughters of Daksha, the careful patriarch. Twenty-seven daughters! And do you know what the Moon did? He loved only one — Rohini — and let her sisters wait in an empty courtyard.\n\nChildren, hear this well: it was not the great sin that dimmed him. It was small, daily unfairness."
+    },
+    {
+      "type": "narrative",
+      "delivery": "dramatic",
+      "text": "And so Daksha spoke the terrible words: your light shall fade.\n\nAnd the Moon began to die. Night after night he grew thinner, until the worlds themselves grew cold, for even the plants drink moonlight.\n\nThen the Moon did what the proud can only do after they break — he came to Prabhas, by the western sea, and he knelt. He poured his whole remaining self into worship of Shiva."
+    },
+    {
+      "type": "narrative",
+      "delivery": "solemn",
+      "text": "And Shiva — listen carefully, for this is the bhava hidden inside the story — Shiva did not restore the Moon's light. He could not undo another's word entirely. Instead, he took the fading Moon and placed it upon his own head.\n\nThink of it! The waning thing, the broken thing, worn as an ornament.\n\nThis is why you will see Shiva crowned with a crescent. Not because the Moon was perfect — because devotion offered from a broken place still glows.\n\nAt that spot, Soma built the first shrine with his own hands. The lingam that stands at Somnath is called the protector of Moon-light: Soma-nath. Time would burn this shrine down again and again through history, and people would rebuild it every single time — remember that too, for tonight's secret is simple: what fades with humility returns brighter than pride ever was.\n\nMeditate on that until tomorrow."
+    }
+  ],
+  "teaser": "the journey moves south, to a mountain where a daughter's love moved Shiva himself — Mallikarjuna.",
+  "estMinutes": 18
+}

@@ -1,0 +1,22 @@
+{
+  "id": "jyotirlinga-03",
+  "series": "The Twelve Jyotirlingas",
+  "order": 3,
+  "title": "Mahakaleshwar — The Lord of Time",
+  "intro": "In Ujjain, the lingam faces south — the only one of its kind, guarding the city of time itself.",
+  "provenance": {
+    "work": "Dwadasha Jyotirlinga Stotram (third verse) + Shivapurana Tantrika tradition of Mahakala",
+    "source": "Traditional stotram compilations; Purana references via GRETIL-registered texts",
+    "status": "STUB — segments pending draft"
+  },
+  "segments": [
+    {
+      "type": "padya",
+      "sanskrit": "अवन्तिकायां विहितावतारः",
+      "transliteration": "avantikāyāṁ vihitāvatāraḥ — in Avantika (Ujjain), the lord descended.",
+      "bhava": "Draft pending — a five-year-old boy's devotion that stopped death itself at the temple door."
+    }
+  ],
+  "teaser": "A child named Shrikhar had nothing but a bent nail and burning faith...",
+  "estMinutes": 18
+}
