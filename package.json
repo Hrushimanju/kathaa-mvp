@@ -1,0 +1,17 @@
+{
+  "name": "katha",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Kathaa 360 – Daily Family Story",
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "vitest",
+    "build": "echo \"No build step for static site\""
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.2",
+    "vitest": "^1.6.0"
+  }
+}
