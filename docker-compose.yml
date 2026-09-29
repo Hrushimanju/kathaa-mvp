@@ -2,12 +2,43 @@ version: '3.8'
 
 services:
   web:
-    build: .
+    build:
+      context: .
+      target: runner
     ports:
       - '3000:3000'
     environment:
-      - NODE_ENV=development
-    volumes:
-      - ./:/app
-      - /app/node_modules
-    command: npm run dev # adjust if you have a dev script
+      - NODE_ENV=production
+    # For development, override with:
+    # command: npm run dev
+    # volumes:
+    #   - ./:/app
+    #   - /app/node_modules
+
+  # Future backend service (uncomment when adding API server)
+  # api:
+  #   build:
+  #     context: .
+  #     target: backend
+  #   ports:
+  #     - '4000:4000'
+  #   environment:
+  #     - NODE_ENV=production
+  #     - DATABASE_URL=postgresql://postgres:postgres@db:5432/kathaa
+  #   depends_on:
+  #     - db
+
+  # Future PostgreSQL database (uncomment when adding backend)
+  # db:
+  #   image: postgres:16-alpine
+  #   environment:
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=postgres
+  #     - POSTGRES_DB=kathaa
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   ports:
+  #     - '5432:5432'
+
+# volumes:
+#   postgres_data:
