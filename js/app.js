@@ -5,37 +5,55 @@ window.KATHAA = window.KATHAA || {};
 KATHAA.App = (() => {
   const S = KATHAA.Storage;
 
-  const BUILD = 'v0.1.16';  // bump this each deploy so the live site is always identifiable
+  const BUILD = 'v0.1.16'; // bump this each deploy so the live site is always identifiable
 
   async function boot() {
-    document.querySelectorAll('.brand').forEach(b =>
-      b.innerHTML = b.innerHTML.replace(/<\/?small.*small>/g, '').trim() +
-                    ` <small style="font-size:.65rem;color:#a4937d;">${BUILD}</small>`);
+    document
+      .querySelectorAll('.brand')
+      .forEach(
+        (b) =>
+          (b.innerHTML =
+            b.innerHTML.replace(/<\/?small.*small>/g, '').trim() +
+            ` <small style="font-size:.65rem;color:#a4937d;">${BUILD}</small>`)
+      );
     // Founder dev-switch: triple-click the brand to reset today's hour (beta testing)
-    let brandClicks = 0, brandTimer = null;
-    document.querySelectorAll('.brand').forEach(b => b.onclick = () => {
-      brandClicks++;
-      clearTimeout(brandTimer);
-      brandTimer = setTimeout(() => brandClicks = 0, 1500);
-      if (brandClicks >= 3) {
-        brandClicks = 0;
-        localStorage.removeItem('kath.progress.v1');
-        KATHAA.Timer.refreshBar();
-        KATHAA.toast('🔄 Fresh hour granted (dev reset)');
-      } else KATHAA.toast(`Reset in ${3 - brandClicks} more click${brandClicks === 2 ? '' : 's'}…`);
-    });
+    let brandClicks = 0,
+      brandTimer = null;
+    document.querySelectorAll('.brand').forEach(
+      (b) =>
+        (b.onclick = () => {
+          brandClicks++;
+          clearTimeout(brandTimer);
+          brandTimer = setTimeout(() => (brandClicks = 0), 1500);
+          if (brandClicks >= 3) {
+            brandClicks = 0;
+            localStorage.removeItem('kath.progress.v1');
+            KATHAA.Timer.refreshBar();
+            KATHAA.toast('🔄 Fresh hour granted (dev reset)');
+          } else
+            KATHAA.toast(
+              `Reset in ${3 - brandClicks} more click${brandClicks === 2 ? '' : 's'}…`
+            );
+        })
+    );
 
     wireNav();
     document.getElementById('ob-save').onclick = saveOnboarding;
-    document.getElementById('ob-pref').onchange = e =>
-      document.getElementById('ob-custom').classList.toggle('hidden', e.target.value !== 'custom');
+    document.getElementById('ob-pref').onchange = (e) =>
+      document
+        .getElementById('ob-custom')
+        .classList.toggle('hidden', e.target.value !== 'custom');
     document.getElementById('btn-play').onclick = () => KATHAA.Player.play();
     document.getElementById('btn-pause').onclick = () => KATHAA.Player.pauseV();
-    document.getElementById('btn-stop-listen').onclick = () => KATHAA.Player.openCaptureNow();
+    document.getElementById('btn-stop-listen').onclick = () =>
+      KATHAA.Player.openCaptureNow();
     document.getElementById('cap-done').onclick = () => KATHAA.Capture.done();
-    document.getElementById('cap-cancel').onclick = () => KATHAA.Capture.cancel();
-    document.getElementById('btn-voice-mode').onclick = () => KATHAA.Player.setReadingMode(false);
-    document.getElementById('btn-read-mode').onclick = () => KATHAA.Player.setReadingMode(true);
+    document.getElementById('cap-cancel').onclick = () =>
+      KATHAA.Capture.cancel();
+    document.getElementById('btn-voice-mode').onclick = () =>
+      KATHAA.Player.setReadingMode(false);
+    document.getElementById('btn-read-mode').onclick = () =>
+      KATHAA.Player.setReadingMode(true);
     document.getElementById('close-ok').onclick = closeDay;
 
     if (!S.getProfile()) show('screen-onboarding');
@@ -48,25 +66,39 @@ KATHAA.App = (() => {
     S.saveProfile({
       name: document.getElementById('ob-name').value.trim(),
       pref,
-      custom: pref === 'custom' ? document.getElementById('ob-custom').value.trim() : ''
+      custom:
+        pref === 'custom'
+          ? document.getElementById('ob-custom').value.trim()
+          : '',
     });
     goHome();
   }
 
   /* ── routing ── */
   function wireNav() {
-    document.querySelectorAll('nav [data-nav]').forEach(b =>
-      b.onclick = () => b.dataset.nav === 'home' ? goHome() : goJournal());
+    document
+      .querySelectorAll('nav [data-nav]')
+      .forEach(
+        (b) =>
+          (b.onclick = () =>
+            b.dataset.nav === 'home' ? goHome() : goJournal())
+      );
   }
   function show(id) {
-    document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
+    document
+      .querySelectorAll('.screen')
+      .forEach((s) => s.classList.add('hidden'));
     document.getElementById(id).classList.remove('hidden');
     window.scrollTo(0, 0);
   }
   function stopEngagement() {
     if (KATHAA.Player && KATHAA.Player.disarmAll) KATHAA.Player.disarmAll();
-    else { window.speechSynthesis && speechSynthesis.cancel(); KATHAA.Hotword.disarm(); }
-    KATHAA.Timer.stop(); KATHAA.Timer.refreshBar();
+    else {
+      window.speechSynthesis && speechSynthesis.cancel();
+      KATHAA.Hotword.disarm();
+    }
+    KATHAA.Timer.stop();
+    KATHAA.Timer.refreshBar();
   }
 
   async function goHome() {
@@ -82,8 +114,9 @@ KATHAA.App = (() => {
     }
 
     show('screen-home');
-    document.querySelectorAll('#screen-home nav button').forEach(b =>
-      b.classList.toggle('active', b.dataset.nav === 'home'));
+    document
+      .querySelectorAll('#screen-home nav button')
+      .forEach((b) => b.classList.toggle('active', b.dataset.nav === 'home'));
 
     const all = await KATHAA.Content.loadAll();
     const body = document.getElementById('home-body');
@@ -117,7 +150,7 @@ KATHAA.App = (() => {
     // Timer arms only when Play is pressed or Reading mode is entered
     // (Player.js calls KATHAA.Timer.start(...) at those moments).
     KATHAA.Timer.refreshBar();
-    if (autoPlay) KATHAA.Player.play();     // journal-close resume: continue automatically
+    if (autoPlay) KATHAA.Player.play(); // journal-close resume: continue automatically
   }
 
   async function goJournal() {
@@ -125,9 +158,12 @@ KATHAA.App = (() => {
     KATHAA._resumeAfterJournal = !!KATHAA.Player.isLive;
     stopEngagement();
     show('screen-journal');
-    document.querySelectorAll('#screen-journal nav button').forEach(b =>
-      b.classList.toggle('active', b.dataset.nav === 'journal'));
-    KATHAA.Journal.render();          // also arms journal voice commands
+    document
+      .querySelectorAll('#screen-journal nav button')
+      .forEach((b) =>
+        b.classList.toggle('active', b.dataset.nav === 'journal')
+      );
+    KATHAA.Journal.render(); // also arms journal voice commands
   }
 
   /* ── the graceful close (L-01: philosophy, not pricing) ── */
@@ -145,7 +181,9 @@ KATHAA.App = (() => {
     goHome();
   }
 
-  function resumeStory() { openPlayer(true); }          // voice “play/resume” from journal
+  function resumeStory() {
+    openPlayer(true);
+  } // voice “play/resume” from journal
 
   return { boot, showDayClosed, goHome, goJournal, resumeStory };
 })();

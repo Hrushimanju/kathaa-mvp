@@ -4,10 +4,10 @@ services:
   web:
     build: .
     ports:
-      - "3000:3000"
+      - '3000:3000'
     environment:
       - NODE_ENV=development
     volumes:
       - ./:/app
       - /app/node_modules
-    command: npm run dev  # adjust if you have a dev script
+    command: npm run dev # adjust if you have a dev script

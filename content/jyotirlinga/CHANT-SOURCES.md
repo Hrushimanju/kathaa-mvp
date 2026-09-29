@@ -7,12 +7,12 @@ every used recording registers a provenance-strip entry on its chapter card.
 
 ## Candidate pool (unverified until ticked)
 
-| Status | Source | What | License |
-|---|---|---|---|
-| ☐ VERIFY | archive.org identifier `rare-vedic-chanting` | Traditional recitations — Brahmasri Parasurama Sastri (Yajnavalkya Gurukulam) + disciples; Prof. R. Thiagarajan | PD Mark 1.0 |
-| ☐ VERIFY | archive.org identifier `GAYATRI_SAHASRA_NAMAVALI` | Gayatri recitation by Sunder Hattangadi | PD Mark 1.0 |
-| ☐ NOT FOUND YET | Dwadasha Jyotirlinga Stotram CHANT (specific) | Only English story-narrations surfaced so far, no license | — |
-| ☐ FUTURE | Commissioned vidwan session | One studio session records all 12 padyas + standard shlokas; contract grants Athi 360 perpetual broad-use license w/ credit | budget-gated (v1.x) |
+| Status          | Source                                            | What                                                                                                                        | License             |
+| --------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| ☐ VERIFY        | archive.org identifier `rare-vedic-chanting`      | Traditional recitations — Brahmasri Parasurama Sastri (Yajnavalkya Gurukulam) + disciples; Prof. R. Thiagarajan             | PD Mark 1.0         |
+| ☐ VERIFY        | archive.org identifier `GAYATRI_SAHASRA_NAMAVALI` | Gayatri recitation by Sunder Hattangadi                                                                                     | PD Mark 1.0         |
+| ☐ NOT FOUND YET | Dwadasha Jyotirlinga Stotram CHANT (specific)     | Only English story-narrations surfaced so far, no license                                                                   | —                   |
+| ☐ FUTURE        | Commissioned vidwan session                       | One studio session records all 12 padyas + standard shlokas; contract grants Athi 360 perpetual broad-use license w/ credit | budget-gated (v1.x) |
 
 ## Verification checklist (per track)
 

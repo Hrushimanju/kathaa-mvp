@@ -1,118 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kathaa 360 — Daily Stories</title>
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kathaa 360 — Daily Stories</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ══════════ ONBOARDING ══════════ -->
+    <section id="screen-onboarding" class="screen hidden">
+      <div class="card center-card">
+        <h1>🌅 Welcome</h1>
+        <p class="muted">
+          One true story every day.<br />Sixty minutes. Then go live your life.
+        </p>
+        <label for="ob-name">Your name (optional)</label>
+        <input id="ob-name" type="text" placeholder="e.g. Hrush" />
+        <label for="ob-pref"
+          >In your private notes, how should we refer to you?</label
+        >
+        <select id="ob-pref">
+          <option value="i">First person — “I thought…”</option>
+          <option value="name">By my name</option>
+          <option value="he">he</option>
+          <option value="she">she</option>
+          <option value="they">they</option>
+          <option value="custom">Custom…</option>
+        </select>
+        <input
+          id="ob-custom"
+          type="text"
+          class="hidden"
+          placeholder="type your preference"
+        />
+        <button id="ob-save" class="primary">Begin</button>
+        <p class="fineprint">
+          Your journal lives only in this browser. Never shared. Never trained
+          on.
+        </p>
+      </div>
+    </section>
 
-<!-- ══════════ ONBOARDING ══════════ -->
-<section id="screen-onboarding" class="screen hidden">
-  <div class="card center-card">
-    <h1>🌅 Welcome</h1>
-    <p class="muted">One true story every day.<br>Sixty minutes. Then go live your life.</p>
-    <label for="ob-name">Your name (optional)</label>
-    <input id="ob-name" type="text" placeholder="e.g. Hrush">
-    <label for="ob-pref">In your private notes, how should we refer to you?</label>
-    <select id="ob-pref">
-      <option value="i">First person — “I thought…”</option>
-      <option value="name">By my name</option>
-      <option value="he">he</option>
-      <option value="she">she</option>
-      <option value="they">they</option>
-      <option value="custom">Custom…</option>
-    </select>
-    <input id="ob-custom" type="text" class="hidden" placeholder="type your preference">
-    <button id="ob-save" class="primary">Begin</button>
-    <p class="fineprint">Your journal lives only in this browser. Never shared. Never trained on.</p>
-  </div>
-</section>
+    <!-- ══════════ HOME ══════════ -->
+    <section id="screen-home" class="screen hidden">
+      <header>
+        <span class="brand">Kathaa 360</span>
+        <nav>
+          <button data-nav="home" class="active">Tonight</button>
+          <button data-nav="journal">My Journal</button>
+        </nav>
+      </header>
+      <div id="home-body"></div>
+    </section>
 
-<!-- ══════════ HOME ══════════ -->
-<section id="screen-home" class="screen hidden">
-  <header><span class="brand">Kathaa 360</span><nav>
-    <button data-nav="home" class="active">Tonight</button>
-    <button data-nav="journal">My Journal</button>
-  </nav></header>
-  <div id="home-body"></div>
-</section>
+    <!-- ══════════ PLAYER (voice + reading) ══════════ -->
+    <section id="screen-player" class="screen hidden">
+      <header>
+        <span class="brand">Kathaa 360</span>
+        <nav>
+          <button data-nav="home">← Tonight</button>
+          <button data-nav="journal">My Journal</button>
+        </nav>
+      </header>
+      <div id="mode-switch">
+        <button id="btn-voice-mode">🔊 Voice</button>
+        <button id="btn-read-mode">📖 Read</button>
+      </div>
+      <div id="session-status" class="sessionbar"></div>
 
-<!-- ══════════ PLAYER (voice + reading) ══════════ -->
-<section id="screen-player" class="screen hidden">
-  <header><span class="brand">Kathaa 360</span><nav>
-    <button data-nav="home">← Tonight</button>
-    <button data-nav="journal">My Journal</button>
-  </nav></header>
-  <div id="mode-switch">
-    <button id="btn-voice-mode">🔊 Voice</button>
-    <button id="btn-read-mode">📖 Read</button>
-  </div>
-  <div id="session-status" class="sessionbar"></div>
+      <!-- voice controls -->
+      <div id="voice-panel">
+        <div id="voice-now" class="card">
+          <p class="muted">Press play to begin tonight’s telling.</p>
+        </div>
+        <div class="controls">
+          <button id="btn-play" class="primary">▶ Play</button>
+          <button id="btn-pause" disabled>⏸ Pause</button>
+          <button
+            id="btn-stop-listen"
+            title="Say “stop” any time — or press here to capture a thought"
+          >
+            💡 Capture a thought
+          </button>
+        </div>
+        <p id="hotword-hint" class="fineprint">
+          Hotword armed — just say <b>“stop”</b> whenever an idea strikes.
+        </p>
+      </div>
 
-  <!-- voice controls -->
-  <div id="voice-panel">
-    <div id="voice-now" class="card"><p class="muted">Press play to begin tonight’s telling.</p></div>
-    <div class="controls">
-      <button id="btn-play" class="primary">▶ Play</button>
-      <button id="btn-pause" disabled>⏸ Pause</button>
-      <button id="btn-stop-listen" title="Say “stop” any time — or press here to capture a thought">💡 Capture a thought</button>
+      <!-- reading panel -->
+      <div id="read-panel" class="hidden"></div>
+
+      <!-- provenance strip -->
+      <details id="provenance-box">
+        <summary>📜 Sources & provenance</summary>
+        <div id="prov-detail"></div>
+      </details>
+    </section>
+
+    <!-- ══════════ CAPTURE OVERLAY ══════════ -->
+    <div id="capture-overlay" class="overlay hidden">
+      <div class="card center-card">
+        <h2>🎙 Your idea — exactly as you’ll say it</h2>
+        <p class="muted" id="cap-context"></p>
+        <textarea
+          id="cap-transcript"
+          rows="6"
+          aria-label="Your idea, spoken or typed"
+          placeholder="Speak freely… your words land here unedited."
+        ></textarea>
+        <label class="mini"
+          ><input type="checkbox" id="cap-keep-audio" checked /> also keep my
+          raw voice recording</label
+        >
+        <div class="controls">
+          <button id="cap-done" class="primary">💾 Save to my journal</button>
+          <button id="cap-cancel">Discard</button>
+        </div>
+      </div>
     </div>
-    <p id="hotword-hint" class="fineprint">Hotword armed — just say <b>“stop”</b> whenever an idea strikes.</p>
-  </div>
 
-  <!-- reading panel -->
-  <div id="read-panel" class="hidden"></div>
+    <!-- ══════════ JOURNAL ══════════ -->
+    <section id="screen-journal" class="screen hidden">
+      <header>
+        <span class="brand">Kathaa 360</span>
+        <nav>
+          <button data-nav="home">← Tonight</button>
+          <button data-nav="journal" class="active">My Journal</button>
+        </nav>
+      </header>
+      <h2>📓 My Journal</h2>
+      <p class="fineprint">
+        Private. Only yours. Interleaved: your ideas ↔ where they struck you.
+      </p>
+      <div id="journal-list"></div>
+    </section>
 
-  <!-- provenance strip -->
-  <details id="provenance-box"><summary>📜 Sources & provenance</summary><div id="prov-detail"></div></details>
-</section>
-
-<!-- ══════════ CAPTURE OVERLAY ══════════ -->
-<div id="capture-overlay" class="overlay hidden">
-  <div class="card center-card">
-    <h2>🎙 Your idea — exactly as you’ll say it</h2>
-    <p class="muted" id="cap-context"></p>
-    <textarea id="cap-transcript" rows="6" aria-label="Your idea, spoken or typed"
-      placeholder="Speak freely… your words land here unedited."></textarea>
-    <label class="mini"><input type="checkbox" id="cap-keep-audio" checked> also keep my raw voice recording</label>
-    <div class="controls">
-      <button id="cap-done" class="primary">💾 Save to my journal</button>
-      <button id="cap-cancel">Discard</button>
+    <!-- ══════════ DAY CLOSED ══════════ -->
+    <div id="close-overlay" class="overlay hidden">
+      <div class="card center-card">
+        <h2>🌙 The sun has set on today’s chapter</h2>
+        <p id="close-msg"></p>
+        <p class="teaser" id="close-teaser"></p>
+        <button id="close-ok" class="primary">Good night 🙏</button>
+      </div>
     </div>
-  </div>
-</div>
 
-<!-- ══════════ JOURNAL ══════════ -->
-<section id="screen-journal" class="screen hidden">
-  <header><span class="brand">Kathaa 360</span><nav>
-    <button data-nav="home">← Tonight</button>
-    <button data-nav="journal" class="active">My Journal</button>
-  </nav></header>
-  <h2>📓 My Journal</h2>
-  <p class="fineprint">Private. Only yours. Interleaved: your ideas ↔ where they struck you.</p>
-  <div id="journal-list"></div>
-</section>
+    <div id="toast" class="toast hidden"></div>
 
-<!-- ══════════ DAY CLOSED ══════════ -->
-<div id="close-overlay" class="overlay hidden">
-  <div class="card center-card">
-    <h2>🌙 The sun has set on today’s chapter</h2>
-    <p id="close-msg"></p>
-    <p class="teaser" id="close-teaser"></p>
-    <button id="close-ok" class="primary">Good night 🙏</button>
-  </div>
-</div>
-
-<div id="toast" class="toast hidden"></div>
-
-<script src="js/storage.js"></script>
-<script src="js/content.js"></script>
-<script src="js/timer.js"></script>
-<script src="js/capture.js"></script>
-<script src="js/player.js"></script>
-<script src="js/journal.js"></script>
-<script src="js/app.js"></script>
-</body>
+    <script src="js/storage.js"></script>
+    <script src="js/content.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/capture.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/journal.js"></script>
+    <script src="js/app.js"></script>
+  </body>
 </html>
