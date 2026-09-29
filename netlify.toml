@@ -1,0 +1,15 @@
+[build]
+  publish = "."
+  command = "echo 'No build step for static site'"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
