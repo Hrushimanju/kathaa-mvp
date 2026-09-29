@@ -1,8 +1,9 @@
 # Kathaa 360 — Daily Family Story
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![CI](https://github.com/yourorg/katha/actions/workflows/ci.yml/badge.svg)](https://github.com/yourorg/katha/actions/workflows/ci.yml)
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/yourorg/katha)
+[![CI](https://github.com/Hrushimanju/kathaa-mvp/actions/workflows/ci.yml/badge.svg)](https://github.com/Hrushimanju/kathaa-mvp/actions/workflows/ci.yml)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-brightgreen)](https://hrushimanju.github.io/kathaa-mvp/)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Hrushimanju/kathaa-mvp)
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/your-template)
 
 > **Kathaa 360** delivers a personalized, enriching story every day to preserve family knowledge and spark imagination.
